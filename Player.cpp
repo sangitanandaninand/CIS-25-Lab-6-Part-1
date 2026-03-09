@@ -1,46 +1,64 @@
 #include "Player.h"
 #include <iostream>
+#include <string>
 
-Player:: Player() {
+// name "Hero", health 100, maxHealth 100, and attackPower 10.
+Player::Player() {
     name = "Hero";
     health = 100;
     maxHealth = 100;
     attackPower = 10;
 }
 
-Player::Player();
-Player(std::string name, int health, int attackPower); {
+Player::Player(std::string name, int health, int attackPower) {
     this->name = name;
     this->health = health;
     this->attackPower = attackPower;
-    this-> maxHealth = health;
+    this->maxHealth = health;
+    this-> inventory = Inventory (10);
 }
 
-Player::Player() {
-    std:: cout << "The object for Player [name] has been destroyed." << std:: endl;
+Player::~Player() {
+    std::cout << "The object for Player " << name << " has been destroyed." << std::endl;
 }
 
-//getters
-std:: string Player:: getName() const
-int Player:: getHealth() const
-int Player:: getMaxHealth() const
-int Player:: getAttackPower() const
+// getters
+std::string Player::getName() const {
+    return name;
+}
+int Player::getHealth() const {
+    return health;
+}
+int Player::getMaxHealth() const {
+    return maxHealth;
+}
+int Player::getAttackPower() const {
+    return attackPower;
+}
 
-
-//"actual functions"
+// "actual functions"
 void Player::takeDamage(int damage) {
     if(damage > health) {
         health = 0;
-    }else{
+    } else {
         health -= damage;
     }
-}
-if (health <= 0) {
-    std:: cout << name << name <<"falls to the ground,defeated." << std::endl;
-} 
 
-//common shortcut for health = health - damage;
-
-void Player:: displayedStatus() {
-    std::cout << name <<"-HP: " << health << "/" << maxHealth << std:: endl;
+    if(health <= 0) {
+        std::cout << name << " falls to the ground, defeated." << std::endl;
+    }
+    
+    // common shortcut for health = health - damage;
 }
+void Player::displayStatus() {
+    std::cout << name << " - HP: " << health << "/" << maxHealth << std::endl;
+    return;
+}
+
+void Player::showInventory() const {
+    inventory.display();
+    return;
+}
+void Player::addItem(const Item& item) {
+    inventory.addItem(item);
+    return;

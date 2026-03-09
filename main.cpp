@@ -3,16 +3,18 @@
 
 int main() {
     Player hero;
-    Player wizard("Mork", 120, 15);
+    
+    Item sword("Sword", 50);
+    Item bonnent("Bonnset",150);
+    Item boots("Boots",10);
+    Item junk;
 
-    hero.displayStatus();
-    wizard.displayStatus();
+    hero.addItems(sword);
+    hero.addItem(bonnent);
+    hero.addItem(boots);
+    hero.addItem(junk);
 
-    hero.takeDamage(25);
-    hero.displayStatus();
-
-    wizard.takeDamage(150);
-    wizard.displayStatus();
+    cout << "The total number of item is" << Item::getTotalItems() << endl;
 
     return 0;
 }
