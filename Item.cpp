@@ -2,17 +2,32 @@
 
 int Item::totalItems = 0;
 
-Item::Item(std::string name = "Scrap", int value = 0){
-
+Item::Item(std::string newName, int value) {
+    this->name = newName;
+    this->value = value;
 }
 
-string Item: getName() const {
-    return name;
-    }
-int Item:getValue() const {
+int Item::getTotalItems() {
+    return totalItems;
+}
+
+void Item::incrementTotalItems() {
+    totalItems += 1;
+}
+
+string Item::getName() const {
+            return name;
+}
+
+int Item::getValue() const {
     return value;
 }
+
 void Item::display() const {
-    cout << "{" << getName() << "](Value: [" << getValue() << "]" << endl;
+    cout << "{" << getName() << "] (Value: [" << getValue() << "]" << endl;
     return;
+}
+void Item::incrementTotalItems() {
+    totalItems += 1;
+
 }

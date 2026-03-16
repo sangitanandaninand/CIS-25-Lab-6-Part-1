@@ -9,7 +9,7 @@ Inventory::Inventory(int capacity) {
     this->items = new Item[capacity];
 }
 Inventory::~Inventory() {
-    delete items;
+    delete[] items;
 }
 bool Inventory::addItem(const Item& item) {
     if(itemCount < capacity) {

@@ -14,7 +14,7 @@ class Item {
     public:
     Item(std::string name = "Scrap",int value = 0;);
     static int getTotalItems();
-    static void increatmentTotalItems();
+    static void incrementTotalItems();
     string getName() const;
     int getValue() const;
     void display() const;
